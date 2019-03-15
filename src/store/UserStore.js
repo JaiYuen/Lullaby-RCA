@@ -1,5 +1,6 @@
 import { observable, action, decorate } from 'mobx';
 import PersistData from './PersistData';
+import ApiUrls from '../api/apiUrls';
 /**
  * 用户登录  示例代码，可以删除
  */
@@ -25,7 +26,9 @@ class UserStore {
         this.counts+=1;
     }
     clickBtn(){
-        this.rootStore.getMessage();
+        this.rootStore.getMessage(ApiUrls.EXAMPLE_LOGIN,{}).then(
+            json=>{console.log(json)}
+        );
     }
 
 }
